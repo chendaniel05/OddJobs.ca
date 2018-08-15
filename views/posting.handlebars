@@ -1,0 +1,91 @@
+
+<!-- The navigation bar begin -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <a class="navbar-brand" href="/">
+    <img src="img/logo.png" class="navbar-logo-img mr-2" alt=""> OddJobs.ca
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a href="/create-posting" class="nav-link create-recipe-link">Post a Job
+          <span class="sr-only"></span>
+        </a>
+      </li>
+      <li class="nav-item mr-3">
+        <a class="nav-link" href="/postings">Postings
+          <span class="sr-only"></span>
+        </a>
+      </li>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      </form>
+      {{!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <img class="mr-2 navbar-avatar-img" src="http://i.pravatar.cc/300" alt="Recipe author avatar"> Hey, Kati Frantz
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="profile.html">My profile</a>
+          <a class="dropdown-item" href="favorites.html">My favorites</a>
+          <a class="dropdown-item" href="settings.html">Notification settings</a>
+        </div>
+      </li> --}}
+    </ul>
+  </div>
+</nav>
+<!-- The navigation bar ending -->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4 class="card-title">
+            <strong>{{posting.title}}</strong>
+          </h4>
+          <p>
+            <strong>Employer:</strong> {{posting.employer}}
+          </p>
+          <p>
+            <strong>Location:</strong> {{posting.location}}
+          </p>
+          <p>
+            <strong>Job ID#:</strong> {{posting.id}}
+          </p>
+          <p>
+            <strong>Job Title:</strong> {{posting.title}}
+          </p>
+          <p>
+            <strong>Description:</strong> {{posting.description}}
+          </p>
+
+          <a href="/">← Back To Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Begin page footer -->
+<footer class="footer">
+  <a class="navbar-brand" href="/">
+    <img src="img/logo.png" class="navbar-logo-img mr-2" alt=""> OddJobs.ca
+  </a>
+</footer>
+<!-- End page footer -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+  crossorigin="anonymous"></script>
