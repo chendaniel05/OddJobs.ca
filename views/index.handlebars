@@ -1,33 +1,364 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+<!-- The navigation bar begin -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <a class="navbar-brand" href="/">
+    <img src="img/logo.png" class="navbar-logo-img mr-2" alt=""> OddJobs.ca
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a href="create-posting" class="nav-link create-recipe-link">Post a Job
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item mr-3">
+        <a class="nav-link" href="postings">Job Listing
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      </form>
+    </ul>
+  </div>
+</nav>
+<!-- The navigation bar ending -->
+
+<!-- The Jumbotron Area -->
+<div id="jumbotron" class="jumbotron text-center">
+  <h1 class="display-3 mb-5">
+    <img src="img/logo.png" class="jumbotron-logo-img mr-2" alt="">
+  </h1>
+
+  <p class="lead jumbotron-title display-4 wow bounceInUp" data-wow-duration="2s" style="color: darkred">Professional hub for all odd jobs</p>
+  <br>
+  <p class="lead">
+    <!-- The home button 
+                    If the user is authenticated, let him rather see a create recipe button
+                -->
+    <a href="login.html" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#exampleModal">Sign in</a>
+    <a href="login.html" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#registerModal">Join now</a>
+    <!-- End of the home button -->
+  </p>
+</div>
+<!-- End of the jumbotron area -->
+
+
+<!-- Featured Jobs section -->
+<div class="container px-5 my-5">
+  <h1 class="display-4 text-center my-5 wow fadeInDown" style="padding: 30px 0px;">
+    <i class="ion ion-star"></i>
+    Featured Jobs
+  </h1>
+  <br>
+  <div class="card-deck wow fadeIn" data-wow-duration="4s">
+    <div class="card-deck wow fadeIn" data-wow-duration="4s">
+      <div class="card mb-3">
+        <div class="img-zoom">
+          <img class="card-img-top" style="height: 250px;" src="img/job-1.jpg" alt="Card image cap">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">
+            <a href="posting/{{this.id}}">Job Title: {{this.title}}</a>
+          </h5>
+          <hr>
+          <p class="text-sm mb-5">
+            <span class="text-muted">
+              <i class="ion ion-android-contact"></i>Employer: {{this.employer}}
+            </span>
+            <span class="text-muted float-right">
+              <i class="ion ion-android-pin"></i>
+              Location: {{this.location}}</span>
+          </p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="img-zoom">
+          <img class="card-img-top" style="height: 250px;" src="img/job-1.jpg" alt="Card image cap">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">
+            <a href="posting/{{this.id}}">Job Title: {{this.title}}</a>
+          </h5>
+          <hr>
+          <p class="text-sm mb-5">
+            <span class="text-muted">
+              <i class="ion ion-android-contact"></i>Employer: {{this.employer}}
+            </span>
+            <span class="text-muted float-right">
+              <i class="ion ion-android-pin"></i>
+              Location: {{this.location}}</span>
+          </p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="img-zoom">
+          <img class="card-img-top" style="height: 250px;" src="img/job-1.jpg" alt="Card image cap">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">
+            <a href="posting/{{this.id}}">Job Title: {{this.title}}</a>
+          </h5>
+          <hr>
+          <p class="text-sm mb-5">
+            <span class="text-muted">
+              <i class="ion ion-android-contact"></i>Employer: {{this.employer}}
+            </span>
+            <span class="text-muted float-right">
+              <i class="ion ion-android-pin"></i>
+              Location: {{this.location}}</span>
+          </p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="img-zoom">
+          <img class="card-img-top" style="height: 250px;" src="img/meal-1.jpg" alt="Card image cap">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">
+            <a href="posting/{{this.id}}">Job Title: {{this.title}}</a>
+          </h5>
+          <hr>
+          <p class="text-sm mb-5">
+            <span class="text-muted">
+              <i class="ion ion-android-contact"></i>Employer: {{this.employer}}
+            </span>
+            <span class="text-muted float-right">
+              <i class="ion ion-android-pin"></i>
+              Location: {{this.location}}</span>
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<!-- End of Featured Jobs section -->
+
+<!-- Job Listing Title section -->
+<div class="container px-5 my-5">
+  <h1 class="display-4 text-center my-5 wow fadeInDown" style="padding: 30px 0px;">
+    <i class="ion ion-person-stalker"></i>
+    Find Your Perfect Odd Job</h1>
+</div>
+<!-- End of Job Listing Title section -->
+
+<!-- Job Listing Section -->
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 offset-2">
+        <h1>{{msg}}</h1>
+        <h2>This is the place for all the odd jobs!</h2>
+
+        <h2>Postings:</h2>
+        <ul id="posting-list" class="list-group">
+          {{#each postings}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <h5>
+              <a href="posting/{{this.id}}">Job Title: {{this.title}}</a>
+            </h5>
+            <hr>
+            <p class="text-sm mb-5">
+              <span class="text-muted">
+                <i class="ion ion-android-contact"></i>Employer: {{this.employer}}
+              </span>
+              <span class="text-muted float-right">
+                <i class="ion ion-android-pin"></i>
+                Location: {{this.location}}</span>
+            </p>
+          </li>
+          {{/each}}
+        </ul>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of Job Listing Section -->
+
+<!-- Post a Job Title section -->
+<div class="container px-5 my-5">
+  <h1 class="display-4 text-center my-5 wow fadeInDown" style="padding: 30px 0px;">
+    <i class="ion ion-person-stalker"></i>
+    Post Your Odd Jobs Here</h1>
+</div>
+<!-- End of Post a Job Title section -->
+
+<!-- Post a Job Section -->
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <h1 class="text-center my-5 header-color">Post a Job</h1>
+    </div>
+    <div class="row justify-content-center">
+
+        <div class="col-lg-10 col-md-10">
+            <div class="card">
+                {{!--
+                <!-- Upload recipe image -->
+                <div class="upload-recipe-img">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <p class="text-center">
+                                <span class="h2">
+                                    <i class="ion ion-camera"></i>
+                                </span>
+                                <br> Click to upload image
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End upload recipe image -->--}}
+                <hr>
+
+                <!-- Create Posting form -->
+                <div class="card-body">
+                    <form class="clearfix mb-4" action="POST">
+                        <h2>Create a Posting</h2>
+                        <div class="form-group">
+                            <label for="posting-title">Job Title</label>
+                            <input type="text" id="posting-title" class="form-control" aria-describedby="posting-title" placeholder="Enter Job Title">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="posting-description">Job Description</label>
+                            <textarea class="form-control" id="posting-description" aria-describedby="posting-description" placeholder="Enter Job Description"
+                                rows=20></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="posting-employer">Employer</label>
+                            <input type="text" id="posting-employer" class="form-control" aria-describedby="posting-employer" placeholder="Enter Employer Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="posting-location">Location</label>
+                            <input type="text" id="posting-location" class="form-control" aria-describedby="posting-location" placeholder="e.g. Toronto, ON">
+                        </div>
+
+                        <button id="submit" class="btn btn-primary float-right">Submit</button>
+                    </form>
+
+               </div>
+                <!-- End create posting form -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Post a Job Section -->
+
+<!--- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="padding-top: 70px;">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <div class="row justify-content-center">
+          <div class="col-10">
+            <form>
+              <h3 class="text-center mb-3 mt-3">Register</h3>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="First name">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Last name">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" id="staticEmail" placeholder="email@example.com">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password">
+              </div>
+              <div class="form-group text-center">
+                <button class="btn mb-3 btn-primary form-control" type="submit">Register</button>
+                <span class="mt-5 h6 mr-3">
+                  <a href="" role="button" data-toggle="modal" data-target="#exampleModal" data-dismiss="modal">Have an account? Login</a>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--- End of Register Modal -->
+
+
+<!--- Login Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="padding-top: 130px;">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <div class="row justify-content-center">
+          <div class="col-10">
+            <form>
+              <h3 class="text-center mb-3 mt-3">Login</h3>
+              <div class="form-group">
+                <input type="text" class="form-control" id="staticEmail" placeholder="email@example.com">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <button class="btn mb-3 btn-primary form-control" type="submit">Login</button>
+                <span class="mt-5 h6 mr-3">
+                  <a href="" role="button" data-toggle="modal" data-target="#registerModal" data-dismiss="modal">No account ? Register</a>
+                </span>
+                <span class="mt-5 ml-2 h6">
+                  <a href="">Forgot your password?</a>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--- End of Login Modal -->
+
+
+<!--Begin page footer -->
+<footer class="footer">
+  <a class="navbar-brand" href="/">
+    <img src="img/logo.png" class="navbar-logo-img mr-2" alt=""> OddJobs.ca
+  </a>
+</footer>
+<!-- End page footer -->
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+  crossorigin="anonymous"></script>
+<script src="js/vegas.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script>
+  new WOW().init();
+  $("#jumbotron").vegas({
+    timer: false,
+    shuffle: true,
+    transition: 'fade',
+    animation: 'kenburns',
+    slides: [
+      { src: 'img/banner-1.jpg' },
+      { src: 'img/banner-2.jpg' },
+      { src: 'img/banner-3.jpg' }
+    ]
+  });
+</script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

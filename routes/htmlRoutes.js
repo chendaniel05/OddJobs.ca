@@ -1,23 +1,41 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Load index page
-  app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+  app.get("/", function (req, res) {
+    db.Posting.findAll({}).then(function (dbPostings) {
       res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
+        msg: "Welcome to OddJobs.ca!",
+        postings: dbPostings
       });
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.render("example", {
-        example: dbExample
+  // Load posting page and pass in a posting by id
+  app.get("/posting/:id", function (req, res) {
+    db.Posting.findOne({ where: { id: req.params.id } }).then(function (dbPosting) {
+      res.render("posting", {
+        posting: dbPosting
+      });
+    });
+  });
+
+  // Load create posting page
+  app.get("/create-posting", function (req, res) {
+    db.Posting.findAll({}).then(function (dbPostings) {
+      res.render("create-posting", {
+        msg: "Welcome to OddJobs.ca!",
+        postings: dbPostings
+      });
+    });
+  });
+
+  // Load Job Listing page
+  app.get("/postings", function (req, res) {
+    db.Posting.findAll({}).then(function (dbPostings) {
+      res.render("postings", {
+        msg: "Welcome to OddJobs.ca!",
+        postings: dbPostings
       });
     });
   });
@@ -26,4 +44,5 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("404");
   });
-};
+  
+}

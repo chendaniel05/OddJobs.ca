@@ -1,26 +1,31 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  // Get all postings
+  app.get("/api/postings", function(req, res) {
+    db.Posting.findAll({}).then(function(dbPostings) {
+      res.json(dbPostings);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // Create a new posting
+  app.post("/api/postings", function(req, res) {
+    db.Posting.create(req.body).then(function(dbPosting) {
+      res.json(dbPosting);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.json(dbExample);
+    // Get a posting by id ?
+    // app.get("/api/posting/:id", function(req, res) {
+    //   db.Posting.findOne({ where: { id: req.params.id } }).then(function(dbPostings) {
+    //     res.json(dbPostings);
+    //   });
+    // });
+
+  // Delete a posting by id
+  app.delete("/api/postings/:id", function(req, res) {
+    db.Posting.destroy({ where: { id: req.params.id } }).then(function(dbPosting) {
+      res.json(dbPosting);
     });
   });
 };
