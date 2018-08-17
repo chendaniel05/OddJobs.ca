@@ -16,7 +16,7 @@ module.exports = function (app) {
     db.Posting.findOne({ where: { id: req.params.id } }).then(function (dbPosting) {
       res.render("posting", {
         posting: dbPosting
-      });
+      }); 
     });
   });
 
@@ -44,5 +44,4 @@ module.exports = function (app) {
   app.get("*", function(req, res) {
     res.render("404");
   });
-  
-}
+};
