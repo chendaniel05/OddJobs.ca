@@ -3,7 +3,9 @@ module.exports = function(sequelize, DataTypes) {
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
     employer: DataTypes.STRING,
-    location: DataTypes.STRING
+    location: DataTypes.STRING,
+    salary: DataTypes.STRING,
+    availability: DataType.STRING
   });
 
   // Posting.associate = function(models) {
