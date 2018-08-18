@@ -1,0 +1,60 @@
+<!-- The Job Listing body -->
+<div id="home">
+    <div class="container">
+        <div class="row justify-content-center">
+            <h1 class="text-center my-5 header-color">All Jobs</h1>
+        </div>
+        <div class="row">
+            <div class="col-12 offset-2">
+                <h2>Job Postings:</h2>
+                <ul id="posting-list" class="list-group">
+                    {{#each postings}}
+                    <li data-id="{{this.id}}" class="list-group-item">
+                        <h5>
+                            <a href="posting/{{this.id}}">
+                                <i class="ion ion-briefcase"></i> {{this.title}}</a>
+                        </h5>
+                        <hr>
+                        <span class="text-muted">
+                            <i class="ion ion-android-contact"></i> Employer: {{this.employer}}
+                        </span>
+                        <span class="text-muted float-right">
+                            <i class="ion ion-android-pin"></i> Location: {{this.location}}
+                        </span>
+                        <br>
+                        <span class="text-muted">
+                            <i class="ion ion-cash"></i> Salary: {{this.salary}}
+                        </span>
+                        <br>
+                        <span class="text-muted">
+                            <i class="ion ion-clock"></i> Availability: {{this.availability}}
+                        </span>
+                    </li>
+                    {{/each}}
+                </ul>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of the Job Listing body -->
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script type="text/javascript" src="/js/login.js"></script>
+
+<script type="text/javascript" src="/js/signup.js"></script> 
+<script type="text/javascript" src="/js/members.js"></script>

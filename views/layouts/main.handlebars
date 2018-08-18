@@ -2,6 +2,75 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/styles/bootstrap.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="/styles/vegas.min.css">
+  <link rel="stylesheet" href="/styles/animate.min.css">
+  <link rel="stylesheet" href="/styles/custom.css">
+  <title>OddJobs.ca</title>
+</head>
+
+<body>
+
+  <!-- The navigation bar begin -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="/">
+      OddJobs.ca
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="/create-posting" class="nav-link create-recipe-link">Post a Job
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item mr-3">
+          <a class="nav-link" href="/postings">Job Listing
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search Job" aria-label="Search">
+        </form>
+
+        {{#if user}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            {{user.email}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="profile">My Profile</a>
+            <a class="dropdown-item" href="subscriptions">My Subscriptions</a>
+            <a class="dropdown-item" href="settings">Account Settings</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </div>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+  <!-- The navigation bar ending -->
+
+  {{{body}}}
+
+  <!--Begin page footer -->
+  <footer class="footer">
+    <a class="navbar-brand" href="/">
+      OddJobs.ca
+    </a>
+  </footer>
+  <!-- End page footer -->
+
+</body>
+
+</html>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
