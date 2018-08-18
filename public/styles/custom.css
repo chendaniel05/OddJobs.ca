@@ -1,15 +1,14 @@
 body {
-    background-image: url('./../img/bg.png');
+    background-image: url('./../img/bg.jpg');
 }
 /* change the background color */
 .navbar-custom {
     background-color: darkred;
-    opacity: 0.8;
 }
 /* change the brand and text color */
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text {
-    color: rgba(255,255,255,.8);
+    color: white;
 }
 /* change the link color */
 .navbar-custom .navbar-nav .nav-link {
@@ -21,21 +20,13 @@ body {
     color: #ffffff;
     font-weight: 700;
 }
-.navbar-logo-img {
-    width: 30px;
-    height: 30px;
-}
 
-.jumbotron-logo-img {
-    width: 180px;
-    height: 180px;
-}
 .jumbotron {
     height: 100vh;
 }
 .jumbotron-title {
     color: darkred;
-    font-weight: bolder;
+    font-weight: 1000;
 }
 
 .navbar .navbar-nav .nav-item .create-recipe-link {
@@ -75,11 +66,11 @@ body {
 }
 .display-4, .display-1, .display-2, .display-3, .display-5, 
 .ion {
-    color: #E27C3E;
+    color: darkred;
 }
 
 .header-color {
-    color: #E27C3E;
+    color: darkred;
 }
 
 .color-darker {
@@ -91,12 +82,12 @@ body {
 }
 
 .btn-primary {
-    background-color: #8bad00;
-    border: 1px solid #8bad00;
+    background-color: lightskyblue;
+    border: 1px solid lightskyblue;
 }
 .btn-primary:hover {
-    background-color: #647c0c;
-    border: 1px solid #647c0c;
+    background-color: navy;
+    border: 1px solid navy;
 }
 
 .btn-primary:disabled {
@@ -136,10 +127,10 @@ body {
     -webkit-transition: all 0.5s;
 }
 .footer {
-    padding: 40px 0;
+    padding: 20px 0;
     color: #ffffff;
     text-align: center;
-    background-color: #E27C3E;
+    background-color: darkred;
   }
 .footer a {
     text-decoration: none;
@@ -215,3 +206,7 @@ body {
     font-weight: '700' !important;
 }
 
+form.signup,
+form.login {
+  margin-top: 50px;
+}

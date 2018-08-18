@@ -1,49 +1,3 @@
-<!-- The navigation bar begin -->
-<nav class="navbar navbar-expand-lg navbar-custom">
-    <a class="navbar-brand" href="/">
-        <img src="img/logo.png" class="navbar-logo-img mr-2" alt=""> OddJobs.ca
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-
-        </ul>
-
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a href="create-posting" class="nav-link create-recipe-link">Post a Job
-                    <span class="sr-only">(current)</span>
-                </a>
-            </li>
-            <li class="nav-item mr-3">
-                <a class="nav-link" href="postings">Job Listing
-                    <span class="sr-only">(current)</span>
-                </a>
-            </li>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            </form>
-            {{!--
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <img class="mr-2 navbar-avatar-img" src="http://i.pravatar.cc/300" alt="Recipe author avatar"> Hey, Kati Frantz
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="profile.html">My profile</a>
-                    <a class="dropdown-item" href="favorites.html">My favorites</a>
-                    <a class="dropdown-item" href="settings.html">Notification settings</a>
-                </div>
-            </li> --}}
-        </ul>
-    </div>
-</nav>
-<!-- The navigation bar ending -->
-
-
 <!-- Page body -->
 <div class="container my-5">
     <div class="row justify-content-center">
@@ -53,23 +7,7 @@
 
         <div class="col-lg-10 col-md-10">
             <div class="card">
-                {{!--
-                <!-- Upload recipe image -->
-                <div class="upload-recipe-img">
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <p class="text-center">
-                                <span class="h2">
-                                    <i class="ion ion-camera"></i>
-                                </span>
-                                <br> Click to upload image
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End upload recipe image -->--}}
                 <hr>
-
                 <!-- Create Posting form -->
                 <div class="card-body">
                     <form class="clearfix mb-4" action="POST">
@@ -95,10 +33,20 @@
                             <input type="text" id="posting-location" class="form-control" aria-describedby="posting-location" placeholder="e.g. Toronto, ON">
                         </div>
 
+                        <div class="form-group">
+                            <label for="posting-salary">Salary (Optional)</label>
+                            <input type="text" id="posting-salary" class="form-control" aria-describedby="posting-salary" placeholder="e.g. $500/day">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="posting-availabilty">Availability (Optional)</label>
+                            <input type="text" id="posting-availability" class="form-control" aria-describedby="posting-availability" placeholder="e.g. Part-time">
+                        </div>
+
                         <button id="submit" class="btn btn-primary float-right">Submit</button>
                     </form>
 
-               </div>
+                </div>
                 <!-- End create posting form -->
             </div>
         </div>
@@ -106,24 +54,7 @@
 </div>
 <!-- End page body -->
 
-<div id="home">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 offset-2">
-                <h1>{{msg}}</h1>
-                <h2>This is the place for all the odd jobs!</h2>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!--Begin page footer -->
-<footer class="footer">
-    <a class="navbar-brand" href="/">
-        <img src="img/logo.png" class="navbar-logo-img mr-2" alt=""> OddJobs.ca
-    </a>
-</footer>
-<!-- End page footer -->
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
@@ -135,3 +66,8 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+
+<script type="text/javascript" src="/js/login.js"></script>
+
+<script type="text/javascript" src="/js/signup.js"></script>
+<script type="text/javascript" src="/js/members.js"></script>

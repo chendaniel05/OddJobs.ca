@@ -3,8 +3,10 @@ var $postingTitle = $("#posting-title");
 var $postingDescription = $("#posting-description");
 var $postingEmployer = $("#posting-employer");
 var $postingLocation = $("#posting-location");
+var $postingSalary = $("#posting-salary");
+var $postingAvailability = $("#posting-availability");
 var $submitBtn = $("#submit");
-var $postingList = $("#posting-list");
+// var $postingList = $("#posting-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -33,34 +35,35 @@ var API = {
 };
 
 // refreshPostings gets new postings from the db and repopulates the list
-var refreshPostings = function () {
-  API.getPostings().then(function (data) {
-    var $postings = data.map(function (posting) {
-      var $a = $("<a>")
-        .text(posting.title)
-        .attr("href", "/posting/" + posting.id);
+// var refreshPostings = function () {
+//   API.getPostings().then(function (data) {
+//     console.log("after get postings", data);
+//     var $postings = data.map(function (posting) {
+//       var $a = $("<a>")
+//         .text(posting.title)
+//         .attr("href", "/posting/" + posting.id);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": posting.id
-        })
-        .append($a);
+//       var $li = $("<li>")
+//         .attr({
+//           class: "list-group-item",
+//           "data-id": posting.id
+//         })
+//         .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+//       var $button = $("<button>")
+//         .addClass("btn btn-danger float-right delete")
+//         .text("ｘ");
 
-      $li.append($button);
+//       $li.append($button);
 
-      return $li;
-    });
+//       return $li;
+//     });
 
-    $postingList.empty();
-    $postingList.append($postings);
-    window.location.replace("/postings");
-  });
-};
+//     $postingList.empty();
+//     $postingList.append($postings);
+//     // window.location.replace("/posting/");
+//   });
+// };
 
 // handleFormSubmit is called whenever we submit a new posting
 // Save the new posting to the db and refresh the list
@@ -71,38 +74,45 @@ var handleFormSubmit = function (event) {
     title: $postingTitle.val().trim(),
     description: $postingDescription.val().trim(),
     employer: $postingEmployer.val().trim(),
-    location: $postingLocation.val().trim()
+    location: $postingLocation.val().trim(),
+    salary: $postingSalary.val().trim(),
+    availability: $postingAvailability.val().trim()
   };
 
   if (!(posting.title && posting.description && posting.location && posting.employer)) {
-    alert("You must fill up all the fields!");
+    alert("You must fill up all the mandatory fields!");
     return;
   }
 
-  API.savePosting(posting).then(function () {
-    refreshPostings();
-  });
+  API.savePosting(posting)
+    .then(function (newPost) {
+      console.log("after ajax request to save post", newPost);
+      window.location.replace("/posting/"+newPost.id);
+      // refreshPostings();
+    });
 
   // Empty each input box by replacing the value with an empty string
   $postingTitle.val("");
   $postingDescription.val("");
   $postingEmployer.val("");
   $postingLocation.val("");
+  $postingSalary.val("");
+  $postingAvailability.val("");
 };
 
 // handleDeleteBtnClick is called when an posting's delete button is clicked
 // Remove the posting from the db and refresh the list
-var handleDeleteBtnClick = function () {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+// var handleDeleteBtnClick = function () {
+//   var idToDelete = $(this)
+//     .parent()
+//     .attr("data-id");
 
-  API.deletePosting(idToDelete).then(function () {
-    refreshPostings();
-  });
-};
+//   API.deletePosting(idToDelete).then(function () {
+//     refreshPostings();
+//   });
+// };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$postingList.on("click", ".delete", handleDeleteBtnClick);
+// $postingList.on("click", ".delete", handleDeleteBtnClick);
 
